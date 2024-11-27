@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverActions: true,
+    serverActions: {}, // Changed `true` to an empty object as expected
   },
 };
 
