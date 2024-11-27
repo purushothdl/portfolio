@@ -51,9 +51,6 @@ export default function Contact() {
           loading="lazy"
           width="100%"
           height="400"
-          frameBorder="0"
-          marginHeight="0"
-          marginWidth="0"
           title="Contact Me"
           style={{
             backgroundColor: "transparent", // Ensures the background blends with your site theme
