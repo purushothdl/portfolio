@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
@@ -13,105 +12,137 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const [isReady, setIsReady] = useState(false);
 
+  useEffect(() => {
+    console.log("Intro mounted, waiting 100ms for hydration...");
+    const timer = setTimeout(() => {
+      console.log("Hydration delay done, rendering!");
+      setIsReady(true);
+    }, 100);
+    return () => {
+      console.log("Intro unmounting");
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const handleClick = (e: React.MouseEvent, target: string) => {
+    console.log(`Button clicked: ${target}`);
+    if (target === "contact") {
+      e.preventDefault();
+      setActiveSection("Contact");
+      setTimeOfLastClick(Date.now());
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  if (!isReady) {
+    console.log("Not ready yet, skipping render...");
+    return null;
+  }
+
+  console.log("Rendering Intro...");
   return (
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "tween",
-              duration: 0.2,
-            }}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.02),transparent_50%)] pointer-events-none" />
+      
+      <div className="container mx-auto px-4 max-w-[900px]">
+        <motion.div
+          className="space-y-10 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h2 className="text-sm uppercase tracking-[0.4em] text-neutral-600 dark:text-neutral-400 mb-6">
+                Backend Engineer
+              </h2>
+            </motion.div>
+            
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Hello, I'm{" "}
+              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
+                Purushoth
+              </span>
+            </motion.h1>
+
+            <motion.p
+            className="text-xl sm:text-2xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
           >
-            <Image
-              src="/profile-pic.jpeg"
-              alt="Chethan Reddy portrait"
-              width="192"
-              height="192"
-              quality="95"
-              priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
-            />
+            Building robust and scalable backend solutions with{" "}
+            <span className="font-semibold text-neutral-900 dark:text-white">
+              hands-on experience
+            </span> in FastAPI, cloud architectures, and AI-powered applications.
+          </motion.p>
+
+          </div>
+
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 pt-8 relative z-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <Link
+              href="#contact"
+              onClick={(e) => handleClick(e, "contact")}
+              className="group px-12 py-4 bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2"
+            >
+              Let's Connect
+              <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <a
+              href="/CV.pdf"
+              download
+              onClick={(e) => handleClick(e, "download")}
+              className="px-12 py-4 border border-neutral-300 dark:border-neutral-700 rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2"
+            >
+              Resume <HiDownload className="group-hover:translate-y-1 transition-transform" />
+            </a>
           </motion.div>
 
-          <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
+          <motion.div
+            className="flex justify-center gap-6 pt-12 relative z-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
           >
-            👋
-          </motion.span>
-        </div>
+            {[
+              { icon: <BsLinkedin size={24} />, url: "https://www.linkedin.com/in/dl-purushoth-b2a5a52a7/" },
+              { icon: <FaGithubSquare size={26} />, url: "https://github.com/purushothdl" },
+            ].map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.url}
+                target="_blank"
+                onClick={(e) => handleClick(e, social.url.includes("linkedin") ? "linkedin" : "github")}
+                className="w-16 h-16 bg-white dark:bg-neutral-800/50 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {social.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
-
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Hello, I'm Chethan Reddy.</span> I'm a{" "}
-        <span className="font-bold">AI Software Engineer</span> with{" "}
-        <span className="font-bold">3 years</span> of experience.
-      </motion.h1>
-
-      <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
-      >
-        <Link
-          href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
-          onClick={() => {
-            setActiveSection("Contact");
-            setTimeOfLastClick(Date.now());
-          }}
-        >
-          Contact me here{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
-        </Link>
-
-        <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/CV.pdf"
-          download
-        >
-          Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/achethanreddy/"
-          target="_blank"
-        >
-          <BsLinkedin />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/chethanreddy123"
-          target="_blank"
-        >
-          <FaGithubSquare />
-        </a>
-      </motion.div>
     </section>
   );
 }
