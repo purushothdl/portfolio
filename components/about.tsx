@@ -7,7 +7,7 @@ import SectionHeading from "./section-heading";
 import { skills, aboutContent } from "@/lib/about";
 
 export default function About() {
-  const { ref } = useSectionInView("About");
+  const { ref } = useSectionInView("About", 0.2);
 
   return (
     <section
