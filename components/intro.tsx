@@ -103,7 +103,7 @@ export default function Intro() {
             <Link
               href="#contact"
               onClick={(e) => handleClick(e, "contact")}
-              className="group px-12 py-4 bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2"
+              className="group w-[250px] text-center px-12 py-4 bg-neutral-900 dark:bg-white dark:text-neutral-900 text-white rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
               Let's Connect
               <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -112,7 +112,7 @@ export default function Intro() {
               href="/CV.pdf"
               download
               onClick={(e) => handleClick(e, "download")}
-              className="px-12 py-4 border border-neutral-300 dark:border-neutral-700 rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center gap-2"
+              className="group w-[250px] text-center px-12 py-4 border border-neutral-300 dark:border-neutral-700 rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
               Resume <HiDownload className="group-hover:translate-y-1 transition-transform" />
             </a>

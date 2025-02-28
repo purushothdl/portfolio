@@ -63,12 +63,12 @@ export default function Skills() {
             variants={categoryVariants}
             className="flex justify-center mb-12 sm:mb-16 overflow-x-auto pb-4 hide-scrollbar"
           >
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 p-1 rounded-full bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-700/50">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 p-1 rounded-lg sm:rounded-full bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-700/50">
               {skillsCategories.map((category, index) => (
                 <button
                   key={category.title}
                   onClick={() => setActiveCategory(index)}
-                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 whitespace-nowrap ${
+                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 whitespace-nowrap focus:outline-none select-none [-webkit-tap-highlight-color:transparent] ${
                     activeCategory === index
                       ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg"
                       : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
@@ -88,9 +88,8 @@ export default function Skills() {
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: activeCategory === categoryIndex ? 1 : 0,
-                  x: activeCategory === categoryIndex ? 0 : 100,
                 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
+                transition={{ duration: 0.3 }} // Removed x transition, softened duration
                 className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${
                   activeCategory === categoryIndex ? "block" : "hidden"
                 }`}
@@ -110,24 +109,16 @@ export default function Skills() {
                         ease: "easeOut",
                       }}
                       viewport={{ once: true }}
-                      // whileHover={{
-                      //   y: -5,
-                      //   scale: 1.02,
-                      //   boxShadow:
-                      //     "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                      // }}
                       className="bg-transparent dark:bg-transparent backdrop-blur-xl border border-slate-350/50 dark:border-slate-600/50 rounded-2xl p-4 sm:p-6 transition-all duration-300"
                     >
+                      {/* Rest of the skill card content remains unchanged */}
                       <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
-                        {/* Removed gradient and made it transparent for icons */}
                         <div className="p-2 sm:p-3 rounded-lg bg-transparent border-0 dark:border-0 dark:border-slate-300/50">
                           <Icon
                             className="text-xl sm:text-2xl"
                             style={{ color: getColorFromClass(skill.iconColor) }}
                           />
                         </div>
-
-
                         <h3 className="text-lg sm:text-xl font-medium text-black dark:text-white">{skill.name}</h3>
                       </div>
 
@@ -158,7 +149,6 @@ export default function Skills() {
               </motion.div>
             ))}
           </div>
-
           {/* Quote with Gap and Black BG */}
           <motion.div
             variants={categoryVariants}

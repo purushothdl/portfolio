@@ -12,8 +12,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Purushoth DL | Personal Portfolio",
   description: "Purushoth is a Backend Engineer with 6 months of experience.",
+  icons: {
+    icon: '/icon.ico',
+    apple: '/apple-icon.png',
+  },
 };
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   console.log("RootLayout mounted");
   return (
