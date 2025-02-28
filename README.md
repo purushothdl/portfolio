@@ -14,12 +14,18 @@ Hey there! I'm Purushoth, a backend engineer passionate about building scalable 
 - **Highlights**: 99.9% uptime, real-time workout tracking (~300+ logs daily), smooth user experience.
 - **GitHub**: [github.com/purushothdl/level-up](https://github.com/purushothdl/level-up) 
 - **Screenshots**:
-  ![Level Up 1](public/project-images/level-up/levelup1.jpg)  
-  ![Level Up 2](public/project-images/level-up/levelup2.jpg)
-  ![Level Up 3](public/project-images/level-up/levelup3.jpg)
-  ![Level Up 4](public/project-images/level-up/levelup4.jpg)
-  ![Level Up 5](public/project-images/level-up/levelup5.jpg)
-  
+<table>
+  <tr>
+    <td width="33%"><img src="public/project-images/level-up/levelup1.jpg" alt="Level Up 1" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup2.jpg" alt="Level Up 2" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup3.jpg" alt="Level Up 3" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/level-up/levelup4.jpg" alt="Level Up 4" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup5.jpg" alt="Level Up 5" width="100%"/></td>
+  </tr>
+</table>
+
 ### NextGenHealth - AI-Enhanced Telemedicine Prototype
 *Streamlining healthcare with AI.*
 
@@ -28,11 +34,17 @@ Hey there! I'm Purushoth, a backend engineer passionate about building scalable 
 - **Highlights**: <3s chat latency, tested with 50+ cases, optimized real-time updates.
 - **GitHub**: [github.com/purushothdl/nextgenhealth](https://github.com/purushothdl/nextgenhealth)  
 - **Screenshot**:  
-  ![NextGenHealth 1](public/project-images/level-up/levelup1.jpg)
-  ![NextGenHealth 2](public/project-images/level-up/levelup2.jpg)
-  ![NextGenHealth 3](public/project-images/level-up/levelup3.jpg)
-  ![NextGenHealth 4](public/project-images/level-up/levelup4.jpg)
-  ![NextGenHealth 5](public/project-images/level-up/levelup5.jpg)
+<table>
+  <tr>
+    <td width="33%"><img src="public/project-images/level-up/levelup1.jpg" alt="Level Up 1" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup2.jpg" alt="Level Up 2" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup3.jpg" alt="Level Up 3" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/level-up/levelup4.jpg" alt="Level Up 4" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/level-up/levelup5.jpg" alt="Level Up 5" width="100%"/></td>
+  </tr>
+</table>
     
 ### GreenCore - Smart Waste Management Solution
 *Eco-friendly waste disposal with AI & location tracking.*
@@ -42,19 +54,28 @@ Hey there! I'm Purushoth, a backend engineer passionate about building scalable 
 - **Highlights**: 80+ AI classifications, interactive weight tracking, smart location mapping.
 - **GitHub**: [github.com/purushothdl/greencore](https://github.com/purushothdl/green-core) 
 - **Screenshots**:  
-  ![GreenCore 1](public/project-images/green-core/gc1.png)  
-  ![GreenCore 2](public/project-images/green-core/gc2.png)
-  ![GreenCore 3](public/project-images/green-core/gc3.png)
-  ![GreenCore 4](public/project-images/green-core/gc4.png)
-  ![GreenCore 5](public/project-images/green-/core/gc5.png)
-  ![GreenCore 6](public/project-images/green-core/gc6.png) 
-  ![GreenCore 7](public/project-images/green-core/gc7.png)
-  ![GreenCore 8](public/project-images/green-core/gc8.png)
-  ![GreenCore 9](public/project-images/green-core/gc9.png)
-  ![GreenCore 10](public/project-images/green-core/gc10.png)
-  ![GreenCore 11](public/project-images/green-core/gc11.png)
-  ![GreenCore 12](public/project-images/green-core/gc12.png)
-
+<table>
+  <tr>
+    <td width="33%"><img src="public/project-images/green-core/gc1.png" alt="GreenCore 1" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc2.png" alt="GreenCore 2" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc3.png" alt="GreenCore 3" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/green-core/gc4.png" alt="GreenCore 4" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc5.png" alt="GreenCore 5" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc6.png" alt="GreenCore 6" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/green-core/gc7.png" alt="GreenCore 7" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc8.png" alt="GreenCore 8" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc9.png" alt="GreenCore 9" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/green-core/gc10.png" alt="GreenCore 10" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc11.png" alt="GreenCore 11" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/green-core/gc12.png" alt="GreenCore 12" width="100%"/></td>
+  </tr>
+</table>
 
 ---
 
@@ -100,9 +121,6 @@ I’m all about backend engineering, with a focus on AI-enhanced applications. I
 ---
 
 
-Let me fix the formatting to separate the terminal commands from the closing text:
-
-```markdown:d:\Work\Projects\projects that will never be completed\portfolio-website\README.md
 ## Setup & Run
 Want to check out my work? Here's how:
 
