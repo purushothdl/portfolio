@@ -15,7 +15,7 @@ import {
   SiFirebase,
   SiFlutter,
   SiDart,
-  SiAmazonwebservices,
+  SiAmazonaws,
 } from "react-icons/si";
 import { FaBrain } from "react-icons/fa";
 import { IconType } from "react-icons";
@@ -40,7 +40,7 @@ export interface SkillLevelConfig {
   width: string;
 }
 
-export const skillsCategories: SkillCategory[] = [
+export const skillsCategories = [
   {
     title: "Core Technologies",
     skills: [
@@ -74,7 +74,7 @@ export const skillsCategories: SkillCategory[] = [
     skills: [
       { name: "Docker", icon: SiDocker, level: "Intermediate", iconColor: "text-[#2496ED]", progressColor: "bg-gradient-to-r from-[#2496ED] to-[#1D85E5]" },
       { name: "Kubernetes", icon: SiKubernetes, level: "Learning", iconColor: "text-[#326CE5]", progressColor: "bg-gradient-to-r from-[#326CE5] to-[#4285F4]" },
-      { name: "AWS", icon: SiAmazonwebservices, level: "Learning", iconColor: "text-[#FF9900]", progressColor: "bg-gradient-to-r from-[#FF9900] to-[#FFA726]" },
+      { name: "AWS", icon: SiAmazonaws, level: "Learning", iconColor: "text-[#FF9900]", progressColor: "bg-gradient-to-r from-[#FF9900] to-[#FFA726]" },
     ],
   },
   {
@@ -83,7 +83,7 @@ export const skillsCategories: SkillCategory[] = [
       { name: "Flutter", icon: SiFlutter, level: "Intermediate", iconColor: "text-[#02569B]", progressColor: "bg-gradient-to-r from-[#02569B] to-[#0175C2]" },
     ],
   },
-] as const;
+] satisfies SkillCategory[];
 
 export const skillLevels: Record<SkillLevel, SkillLevelConfig> = {
   Expert: { color: "bg-neutral-300", width: "100%" },

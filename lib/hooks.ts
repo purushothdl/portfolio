@@ -20,7 +20,8 @@ export function useSectionInView(sectionName: SectionName, threshold = 0.5) {
     if (sectionName === "Home") {
       setActiveSection("Home");
     }
-  }, []);
+  }, [sectionName, setActiveSection]); // Added missing dependencies
+
   return {
     ref,
   };
