@@ -112,23 +112,25 @@ export default function Project({
           </div>
         </div>
 
-        {/* Image Carousel - Moved to the top */}
-        <div className="relative min-h-[250px] sm:min-h-[350px] md:min-h-[400px] lg:min-h-[450px] w-full overflow-hidden">
+        {/* Image Carousel - Single improved version */}
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/9' }}>
           {imageUrl.map((img, index) => (
             <motion.div
               key={index}
-              className="absolute inset-0"
+              className="absolute inset-0 flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: index === currentImage ? 1 : 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
             >
-              <Image
-                src={img}
-                alt={`${title} screenshot ${index + 1}`}
-                fill
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                priority={index === 0}
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={img}
+                  alt={`${title} screenshot ${index + 1}`}
+                  fill
+                  className="object-contain bg-neutral-50 dark:bg-neutral-800"
+                  priority={index === 0}
+                />
+              </div>
             </motion.div>
           ))}
           {imageUrl.length > 1 && (

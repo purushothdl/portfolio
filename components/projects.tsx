@@ -6,6 +6,7 @@ import { projectsData } from "@/lib/projects";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import Project from "./project";
+import { StaticImageData } from "next/image";
 
 export default function Projects() {
   const { ref } = useSectionInView("Projects", 0.1);
@@ -42,7 +43,11 @@ export default function Projects() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 * index }}
           >
-            <Project {...project} />
+            <Project 
+              {...project} 
+              // Ensure imageUrl is treated as StaticImageData[]
+              imageUrl={project.imageUrl as unknown as StaticImageData[]}
+            />
           </motion.div>
         ))}
       </div>
