@@ -2,7 +2,10 @@
 
 Hey there! I'm Purushoth, a backend engineer passionate about building scalable systems and AI-driven applications. I specialize in backend development with FastAPI, databases, and cloud services, with a strong focus on AI integration, distributed systems, and efficiency.
 
+Check out my live portfolio: [https://purushoth-backend-portfolio.netlify.app](https://purushoth-backend-portfolio.netlify.app)
+
 ---
+
 
 ## Featured Projects
 
