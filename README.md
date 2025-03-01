@@ -124,28 +124,6 @@ I’m all about backend engineering, with a focus on AI-enhanced applications. I
 ---
 
 
-## Setup & Run
-Want to check out my work? Here's how:
-
-### Clone the repository
-```bash
-git clone https://github.com/purushothdl/portfolio
-```
-
-### Install dependencies
-```bash
-npm install
-```
-
-### Start development server
-```bash
-npm run dev
-```
-
-### Build for production
-```bash
-npm run build
-```
 
 ## Thanks for Stopping By!
 This portfolio is constantly evolving—more projects, more experiments, more learning. Feel free to reach out for collaborations or tech discussions!
