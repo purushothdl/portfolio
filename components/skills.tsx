@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { skillsCategories, skillLevels } from "@/lib/skills";
+import { skillsCategories } from "@/lib/skills";
 import { useSectionInView } from "@/lib/hooks";
 import SectionHeading from "./section-heading";
 
@@ -89,14 +89,13 @@ export default function Skills() {
                 animate={{
                   opacity: activeCategory === categoryIndex ? 1 : 0,
                 }}
-                transition={{ duration: 0.3 }} // Removed x transition, softened duration
-                className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${
+                transition={{ duration: 0.3 }}
+                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 ${
                   activeCategory === categoryIndex ? "block" : "hidden"
                 }`}
               >
                 {category.skills.map((skill, skillIndex) => {
                   const Icon = skill.icon;
-                  const levelConfig = skillLevels[skill.level];
 
                   return (
                     <motion.div
@@ -111,8 +110,7 @@ export default function Skills() {
                       viewport={{ once: true }}
                       className="bg-transparent dark:bg-transparent backdrop-blur-xl border border-slate-350/50 dark:border-slate-600/50 rounded-2xl p-4 sm:p-6 transition-all duration-300"
                     >
-                      {/* Rest of the skill card content remains unchanged */}
-                      <div className="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
                         <div className="p-2 sm:p-3 rounded-lg bg-transparent border-0 dark:border-0 dark:border-slate-300/50">
                           <Icon
                             className="text-xl sm:text-2xl"
@@ -121,43 +119,13 @@ export default function Skills() {
                         </div>
                         <h3 className="text-lg sm:text-xl font-medium text-black dark:text-white">{skill.name}</h3>
                       </div>
-
-                      <div className="mb-2 sm:mb-3 flex justify-between items-center">
-                        <span className="text-xs sm:text-sm text-slate-400 dark:text-slate-400">{skill.level}</span>
-                        <span className="text-xs sm:text-sm text-slate-400 dark:text-slate-400">{levelConfig.width.slice(0, -1)}%</span>
-                      </div>
-
-                      <div className="h-2 bg-slate-700/50 dark:bg-slate-700/50 rounded-full overflow-hidden">
-                        <motion.div
-                          className="h-full rounded-full"
-                          style={{
-                            background: getGradientFromClass(skill.progressColor),
-                          }}
-                          initial={{ width: 0 }}
-                          whileInView={{ width: levelConfig.width }}
-                          transition={{
-                            duration: 1.5,
-                            delay: 0.2 * skillIndex,
-                            ease: "easeOut",
-                          }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
                     </motion.div>
                   );
                 })}
               </motion.div>
             ))}
           </div>
-          {/* Quote with Gap and Black BG */}
-          <motion.div
-            variants={categoryVariants}
-            className="mt-12 sm:mt-16 md:mt-20 rounded-2xl bg-slate-100 dark:bg-black border border-slate-700/50 p-8 sm:p-10 text-center max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto shadow-xl shadow-slate-200/10 dark:shadow-slate-900/10"
-          >
-            <p className="text-black dark:text-slate-300 italic text-base sm:text-lg">
-              "Constantly evolving and adapting to new technologies, with a passion for creating impactful solutions that push the boundaries of what's possible."
-            </p>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>

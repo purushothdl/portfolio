@@ -39,13 +39,19 @@ Check out my live portfolio: [https://purushoth-backend-portfolio.netlify.app](h
 - **Screenshot**:  
 <table>
   <tr>
-    <td width="33%"><img src="public/project-images/level-up/levelup1.jpg" alt="Level Up 1" width="100%"/></td>
-    <td width="33%"><img src="public/project-images/level-up/levelup2.jpg" alt="Level Up 2" width="100%"/></td>
-    <td width="33%"><img src="public/project-images/level-up/levelup3.jpg" alt="Level Up 3" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen1.png" alt="NextGenHealth 1" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen2.png" alt="NextGenHealth 2" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen3.png" alt="NextGenHealth 3" width="100%"/></td>
   </tr>
   <tr>
-    <td width="33%"><img src="public/project-images/level-up/levelup4.jpg" alt="Level Up 4" width="100%"/></td>
-    <td width="33%"><img src="public/project-images/level-up/levelup5.jpg" alt="Level Up 5" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen4.png" alt="NextGenHealth 4" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen5.png" alt="NextGenHealth 5" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen6.png" alt="NextGenHealth 6" width="100%"/></td>
+  </tr>
+  <tr>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen7.png" alt="NextGenHealth 7" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen8.png" alt="NextGenHealth 8" width="100%"/></td>
+    <td width="33%"><img src="public/project-images/nextgenhealth/nextgen9.png" alt="NextGenHealth 9" width="100%"/></td>
   </tr>
 </table>
     

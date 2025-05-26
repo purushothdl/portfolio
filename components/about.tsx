@@ -67,26 +67,6 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-
-        {/* Detailed Description */}
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {aboutContent.paragraphs.map((paragraph, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-              className="bg-neutral-50 dark:bg-neutral-900/50 p-6 rounded-xl border border-neutral-200 dark:border-neutral-800"
-            >
-              <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                {paragraph.title}
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                {paragraph.content}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
     </section>
   );
