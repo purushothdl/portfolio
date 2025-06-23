@@ -45,8 +45,8 @@ export default function Projects() {
           >
             <Project 
               {...project} 
-              // Ensure imageUrl is treated as StaticImageData[]
-              imageUrl={project.imageUrl as unknown as StaticImageData[]}
+              type={project.type as "mobile" | "web"}
+              imageUrl={project.imageUrl as any}
             />
           </motion.div>
         ))}
