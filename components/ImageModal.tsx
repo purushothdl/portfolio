@@ -21,6 +21,16 @@ export default function ImageModal({ images, startIndex = 0, onClose }: ImageMod
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
+  // Add this useEffect hook right after your existing state declarations
+ useEffect(() => {
+    // Disable scroll when modal mounts
+    document.body.style.overflow = 'hidden';
+
+    // Re-enable scroll when modal unmounts
+    return () => {
+    document.body.style.overflow = '';
+    };
+    }, []);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -39,7 +49,7 @@ export default function ImageModal({ images, startIndex = 0, onClose }: ImageMod
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose} // Close modal on backdrop click
-      className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/80 flex items-center justify-center z-[9999] p-4"
     >
       {/* Modal Content - stopPropagation prevents closing when clicking the image/buttons */}
       <motion.div
