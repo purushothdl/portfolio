@@ -1,5 +1,6 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
+import { FaReact, FaRobot } from "react-icons/fa";
 
 
 export const links = [
@@ -29,47 +30,29 @@ export const links = [
   },
 ] as const;
 
+
+
 export const experiencesData = [
+  {
+    title: "AI Engineer Intern", 
+    location: "Dotnitron Technologies - India (Remote)", 
+    description: [
+      "Owned the development of a Python library to classify and sanitize user queries, ensuring safe interactions within production RAG pipelines.",
+      "Developed key components for autonomous financial agents using agentic frameworks to automate complex due diligence research.",
+      "Engineered an asynchronous task system with Celery and cron to manage the data lifecycle, automating file and chat deletion policies."
+    ],
+    icon: React.createElement(FaRobot), 
+    date: "Mar 2025 - May 2025", 
+  },
   {
     title: "Backend Developer Intern",
     location: "AIOverflow - India (Remote)",
-    description:
-      "Developed and deployed a full-stack gym management app, Level Up, using FastAPI and Flutter. Designed and implemented core backend functionalities, including JWT authentication, MongoDB data storage, and Firebase integrations for media handling. Optimized real-time user interactions and analytics for tracking workouts, diet plans, and weight progress. Gained hands-on experience with GraphRAG, RAG, OpenCV (YOLO-based object detection), and DevOps tools like Docker, AWS ECS/ECR, and Google Cloud APIs. Explored AI-driven applications by integrating LLMs for intelligent user interactions and automation.",
+    description: [ 
+      "Developed and deployed a full-stack gym management app ('Level Up') from concept to production using FastAPI and Flutter.",
+      "Architected the RESTful API and backend system, implementing secure JWT authentication and robust data models in MongoDB.",
+      "Containerized the application with Docker and managed deployments to cloud infrastructure (AWS ECS/ECR), gaining production DevOps experience.",
+    ],
     icon: React.createElement(CgWorkAlt),
-    date: "Aug 2024 - Dec 2024",
+    date: "Aug 2024 - Dec 2024", 
   }
 ] as const;
-
-
-
-// export const skillsData = [
-//   "C++",
-//   "Python",
-//   "Go",
-//   "SQL",
-//   "No-SQL",
-//   "AI",
-//   "Machine Learning (ML)",
-//   "Natural Language Processing (NLP)",
-//   "Computer Vision",
-//   "Deep Learning",
-//   "FastAPI",
-//   "MongoDB",
-//   "ElasticSearch",
-//   "ArangoDB",
-//   "OCR",
-//   "NER",
-//   "YOLO",
-//   "AWS",
-//   "Kubernetes",
-//   "Distributed Architecture",
-//   "Linear Support Vector Machine",
-//   "Neural Networks",
-//   "Geometric Math Analysis",
-//   "Deep Vision",
-//   "Render (Cloud Services)",
-//   "Keras",
-//   "TensorFlow",
-//   "LangChain",
-//   "Large Language Models (LLMs: GPT, PaLM, LLama, etc.)",
-// ] as const;

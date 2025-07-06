@@ -1,8 +1,5 @@
 import React from "react";
-import { IconType } from "react-icons";
-import { HiCode } from "react-icons/hi";
-import { FaServer, FaDatabase } from "react-icons/fa";
-import { SiPython, SiFlutter, SiMongodb } from "react-icons/si";
+import { FaServer, FaDatabase, FaRobot } from "react-icons/fa";
 
 interface AboutContent {
   mainDescription: {
@@ -18,37 +15,35 @@ interface Skill {
 
 export const aboutContent: AboutContent = {
   mainDescription: {
-    primary: "Backend Engineer specializing in FastAPI, cloud architectures, and AI-powered applications",
+    primary: "I'm a Backend Engineer who builds intelligent, scalable systems. I specialize in creating robust, AI-powered applications using Python, FastAPI, and modern cloud architectures.",
   },
 };
 
-// The issue is that the className styling is overriding the icon's default colors
+// AFTER
 export const skills: Skill[] = [
   {
-    icon: React.createElement(SiPython, { 
-      size: 36,
-      style: { color: '#3776AB' }, // Python blue
-      className: "group-hover:scale-110 transition-transform" 
+    icon: React.createElement(FaServer, { 
+      // size: 36, // <-- REMOVED
+      style: { color: '#14B8A6' },
+      className: "w-full h-full group-hover:scale-110 transition-transform" // <-- ADDED w-full h-full
     }),
-    title: "Python Backend Development",
-    description: "Building high-performance microservices with FastAPI and scalable systems using Docker, AWS, and Render.",
+    title: "Python Backend Engineering",
+    description: "Architecting high-performance, asynchronous APIs with FastAPI and designing scalable, containerized systems for cloud deployment on AWS and Render.",
   },
   {
-    icon: React.createElement(SiFlutter, { 
-      size: 36,
-      style: { color: '#02569B' }, // Flutter blue
-      className: "group-hover:scale-110 transition-transform" 
+    icon: React.createElement(FaRobot, { 
+      style: { color: '#A855F7' },
+      className: "w-full h-full group-hover:scale-110 transition-transform" 
     }),
-    title: "Cross-Platform Development",
-    description: "Creating seamless user experiences across web and mobile platforms using Flutter and React.",
+    title: "AI & LLM Integration",
+    description: "Developing intelligent, stateful agents using LangGraph and LangChain. Expert at connecting LLMs to custom tools and external APIs to create autonomous systems.",
   },
   {
-    icon: React.createElement(SiMongodb, { 
-      size: 36,
-      style: { color: '#47A248' }, // MongoDB green
-      className: "group-hover:scale-110 transition-transform" 
+    icon: React.createElement(FaDatabase, { 
+      style: { color: '#3B82F6' },
+      className: "w-full h-full group-hover:scale-110 transition-transform" 
     }),
-    title: "Database Design",
-    description: "Designing and optimizing databases for high performance with PostgreSQL and MongoDB.",
+    title: "Database & System Architecture",
+    description: "Designing efficient data models for both SQL (PostgreSQL) and NoSQL (MongoDB), with a focus on data integrity, performance, and decoupled services.",
   },
 ];
