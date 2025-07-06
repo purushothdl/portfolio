@@ -1,24 +1,24 @@
 export const contactConfig = {
-  email: "achethanreddy1921@gmail.com",
+  email: "purushothdl19@gmail.com",
   socials: [
     {
       icon: "BsLinkedin",
       label: "LinkedIn",
-      href: "#",
-      color: "blue",
+      href: "https://www.linkedin.com/in/dl-purushoth-b2a5a52a7/",
+      color: "linkedin"
     },
     {
       icon: "BsGithub",
       label: "GitHub",
-      href: "#",
-      color: "gray",
+      href: "https://github.com/purushothdl",
+      color: "github"
     },
     {
       icon: "FaXTwitter",
       label: "Twitter",
-      href: "#",
-      color: "sky",
-    },
+      href: "https://x.com/PurushothDl",
+      color: "twitter"
+    }
   ],
-  responseTime: "24 hours",
+  responseTime: "24 hours"
 };

@@ -85,7 +85,7 @@ export default function ImageModal({ images, startIndex = 0, onClose }: ImageMod
         {/* Close Button - positioned at top right of the image container */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all backdrop-blur-sm"
+          className="absolute top-4 right-8 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all backdrop-blur-sm"
           aria-label="Close image viewer"
         >
           <FiX size={24} />

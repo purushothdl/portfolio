@@ -1,14 +1,34 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { BsEnvelopePaper, BsLinkedin, BsGithub } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
+import { contactConfig } from "@/lib/contact";
+import { sendEmail } from "@/actions/sendEmail";
+
+const iconMap = {
+  BsLinkedin: BsLinkedin,
+  BsGithub: BsGithub,
+  FaXTwitter: FaXTwitter
+};
 
 export default function Contact() {
-  const { ref } = useSectionInView("Contact", 0.5); // Adjust threshold to 0.5
+  const { ref } = useSectionInView("Contact", 0.5); 
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    if (statusMessage) {
+      const timer = setTimeout(() => {
+        setStatusMessage(null);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [statusMessage]);
 
   return (
     <motion.section
@@ -18,7 +38,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.1 }}  // Reduced amount to 0.1
+      viewport={{ once: true, amount: 0.1 }}  
     >
       {/* Gradient background with improved positioning */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -64,7 +84,28 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="backdrop-blur-md bg-white/80 dark:bg-gray-800/80 rounded-2xl border border-gray-200 dark:border-gray-700/50 p-4 sm:p-6 shadow-lg w-full"
           >
-            <form className="space-y-4 w-full">
+            <form
+              className="space-y-4 w-full"
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setIsSending(true);
+
+                const form = e.currentTarget;
+                const formData = new FormData(form);
+                const { data, error } = await sendEmail(formData);
+
+                setIsSending(false);
+
+                if (error) {
+                  setStatusMessage("An error occurred. Please try again.");
+                  setIsError(true);
+                } else {
+                  setStatusMessage("Email sent successfully!");
+                  setIsError(false);
+                  form.reset();
+                }
+              }}
+            >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -73,8 +114,10 @@ export default function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     className="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none transition-all"
                     placeholder="Your name"
+                    required
                   />
                 </div>
                 <div>
@@ -83,23 +126,12 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none transition-all"
+                    name="senderEmail"
                     placeholder="your@email.com"
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none transition-all"
                   />
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-left text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  className="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none transition-all"
-                  placeholder="What's this about?"
-                />
               </div>
 
               <div>
@@ -107,19 +139,47 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
-                  id="message"
+                  name="message"
+                  placeholder="Your message..."
+                  required
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 focus:ring-1 focus:ring-blue-500 dark:focus:ring-blue-400 outline-none transition-all resize-none"
-                  placeholder="Your message..."
                 ></textarea>
               </div>
 
               <button
-  type="submit"
-  className="w-full py-3 px-6 bg-gradient-to-r from-[#00b0ff] to-[#a3cdff] text-white font-medium rounded-lg hover:shadow-lg hover:from-[#0099cc] hover:to-[#e6f7ff] transform hover:-translate-y-1 transition-all duration-300"
->
-                Send Message
+                type="submit"
+                disabled={isSending}
+                className="w-full py-3 px-6 bg-gradient-to-r from-[#00b0ff] to-[#a3cdff] text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSending ? (
+                  <span className="inline-flex items-center gap-2">
+                    <svg
+                      className="w-4 h-4 animate-spin"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        className="fill-white"
+                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10h-2a8 8 0 1 0-8 8z"
+                      />
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  "Send Message"
+                )}
               </button>
+
+              {statusMessage && (
+                <div
+                  className={`mt-2 text-sm text-center ${
+                    isError ? "text-red-600" : "text-green-600"
+                  }`}
+                >
+                  {statusMessage}
+                </div>
+              )}
             </form>
             
             <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -139,7 +199,7 @@ export default function Contact() {
           >
             {/* Email card */}
             <motion.a
-              href="mailto:purushothdl19@gmail.com"
+              href={`mailto:${contactConfig.email}`}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.5 }}
@@ -150,32 +210,13 @@ export default function Contact() {
               </div>
               <div className="flex-1">
                 <h3 className="font-medium text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Email</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">purushothdl19@gmail.com</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{contactConfig.email}</p>
               </div>
             </motion.a>
 
             {/* Social media grid */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
-            {[
-              { 
-                icon: BsLinkedin, 
-                label: "LinkedIn", 
-                color: "linkedin", // LinkedIn Blue: #0077B5
-                href: "https://www.linkedin.com/in/dl-purushoth-b2a5a52a7/" 
-              },
-              { 
-                icon: BsGithub, 
-                label: "GitHub", 
-                color: "github", // GitHub Black: #181717 (using gray-900 as approximation)
-                href: "https://github.com/purushothdl" 
-              },
-              { 
-                icon: FaXTwitter, 
-                label: "Twitter", 
-                color: "twitter", // Twitter/X Black: #000000 (using sky-900 as approximation)
-                href: "#" 
-              },
-            ].map((social, index) => (
+            {contactConfig.socials.map((social, index) => (
               <motion.a
                 key={social.label}
                 href={social.href}
@@ -187,7 +228,9 @@ export default function Contact() {
                 className="group flex flex-col items-center justify-center gap-2 sm:gap-3 p-3 sm:p-5 bg-white/80 dark:bg-gray-800/80 rounded-xl border border-gray-200 dark:border-gray-700/50 hover:border-blue-400 dark:hover:border-blue-500/50 shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 aspect-square"
               >
                 <div className={`p-2 sm:p-3 bg-${social.color}-100 dark:bg-${social.color}-900/30 rounded-lg group-hover:bg-${social.color}-200 dark:group-hover:bg-${social.color}-800/30 transition-colors`}>
-                  <social.icon className={`text-xl sm:text-2xl text-${social.color}-600 dark:text-${social.color}-400`} />
+                  {iconMap[social.icon as keyof typeof iconMap]({
+                    className: `text-xl sm:text-2xl text-${social.color}-600 dark:text-${social.color}-400`
+                  })}
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">{social.label}</span>
               </motion.a>
@@ -212,7 +255,7 @@ export default function Contact() {
                   <div className="flex-1">
                     <h3 className="font-medium text-gray-700 dark:text-gray-300">Quick Response</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      I typically respond within 24 hours. Looking forward to our conversation!
+                      I typically respond within {contactConfig.responseTime}.
                     </p>
                   </div>
                 </div>
