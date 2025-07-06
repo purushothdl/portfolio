@@ -1,10 +1,6 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
-import hair from "@/public/hair.png";
-import eduaid from "@/public/eduaid.png";
-import karma from "@/public/karma.png";
+
 
 export const links = [
   {
