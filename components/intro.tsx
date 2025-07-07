@@ -109,7 +109,7 @@ export default function Intro() {
               <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="/purushoth's_resume.pdf"
+              href="/CV.pdf"
               download
               onClick={(e) => handleClick(e, "download")}
               className="group w-[250px] text-center px-12 py-4 border border-neutral-300 dark:border-neutral-700 rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all flex items-center justify-center gap-2"
