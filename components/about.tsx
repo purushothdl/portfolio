@@ -62,7 +62,7 @@ export default function About() {
                   {skill.icon}
                 </div>
                 {/* TITLE: Made text smaller on mobile */}
-                <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100">
+                <h3 className="text-base sm:text-lg font-medium text-neutral-900 dark:text-neutral-100 text-center">
                   {skill.title}
                 </h3>
                 {/* DESCRIPTION: Made text smaller on mobile */}

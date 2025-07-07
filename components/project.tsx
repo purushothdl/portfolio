@@ -24,6 +24,7 @@ interface ProjectProps {
   icons: Icon[];
   githubLink: string;
   demoLink?: string;
+  liveLink?: string;
   type: 'mobile' | 'web';
 }
 
@@ -37,6 +38,7 @@ export default function Project({
   icons,
   githubLink,
   demoLink,
+  liveLink,
   type = 'web',
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -92,7 +94,7 @@ export default function Project({
         <div className="rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-neutral-200/50 dark:border-neutral-800/50 bg-white dark:bg-neutral-900">
           {/* Header */}
           <div className="p-6 sm:p-8 border-b border-neutral-200 dark:border-neutral-800">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex flex-col [@media(min-width:1050px)]:flex-row justify-between items-start [@media(min-width:1050px)]:items-center gap-4">
               <div>
                 <div className="flex items-center gap-3">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-teal-300 to-purple-400">
@@ -129,6 +131,17 @@ export default function Project({
                   >
                     <SiGoogledrive className="text-lg sm:text-xl" style={{ color: "#4285F4" }} />
                     <span className="text-sm sm:text-base font-medium">Demo</span>
+                  </a>
+                )}
+                {liveLink && (
+                  <a
+                    href={liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800/70 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-200 hover:text-neutral-900 dark:hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                  >
+                    <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse-slow"></span>
+                    <span className="text-sm sm:text-base font-medium">Live</span>
                   </a>
                 )}
               </div>

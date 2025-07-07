@@ -14,6 +14,13 @@ module.exports = {
       },
       animation: {
         spin: "spin 1s linear infinite",
+        'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+      },
+      keyframes: {
+        'pulse-slow': {
+          '0%, 100%': { transform: 'scale(1.2)' },
+          '50%': { transform: 'scale(0.3)' },
+        },
       },
     },
   },

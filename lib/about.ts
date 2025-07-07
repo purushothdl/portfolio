@@ -43,7 +43,7 @@ export const skills: Skill[] = [
       style: { color: '#3B82F6' },
       className: "w-full h-full group-hover:scale-110 transition-transform" 
     }),
-    title: "Database & System Architecture",
+    title: "Database Architecture",
     description: "Designing efficient data models for both SQL (PostgreSQL) and NoSQL (MongoDB), with a focus on data integrity, performance, and decoupled services.",
   },
 ];
