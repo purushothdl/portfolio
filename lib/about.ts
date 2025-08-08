@@ -1,5 +1,5 @@
 import React from "react";
-import { FaServer, FaDatabase, FaRobot } from "react-icons/fa";
+import { FaServer, FaDatabase, FaRobot, FaShieldAlt } from "react-icons/fa";
 
 interface AboutContent {
   mainDescription: {
@@ -13,37 +13,35 @@ interface Skill {
   description: string;
 }
 
-export const aboutContent: AboutContent = {
+export const aboutContent = {
   mainDescription: {
-    primary: "I'm a Backend Engineer who builds intelligent, scalable systems. I specialize in creating robust, AI-powered applications using Python, FastAPI, and modern cloud architectures.",
+    primary: "I'm a Backend & AI Engineer who builds intelligent, scalable, and secure systems. I specialize in creating robust applications using Python and Go, integrating advanced AI for automation, and designing modern cloud architectures.",
   },
 };
 
-// AFTER
-export const skills: Skill[] = [
+export const skills = [ // The 3 main skill cards on the About page
   {
     icon: React.createElement(FaServer, { 
-      // size: 36, // <-- REMOVED
       style: { color: '#14B8A6' },
-      className: "w-full h-full group-hover:scale-110 transition-transform" // <-- ADDED w-full h-full
+      className: "w-full h-full group-hover:scale-110 transition-transform"
     }),
-    title: "Python Backend Engineering",
-    description: "Architecting high-performance, asynchronous APIs with FastAPI and designing scalable, containerized systems for cloud deployment on AWS and Render.",
+    title: "Backend Engineering",
+    description: "Architecting high-performance, asynchronous APIs with FastAPI and Go, and designing scalable, containerized systems for cloud deployment.",
   },
   {
     icon: React.createElement(FaRobot, { 
       style: { color: '#A855F7' },
-      className: "w-full h-full group-hover:scale-110 transition-transform" 
+      className: "w-full h-full group-hover:scale-110 transition-transform"
     }),
-    title: "AI & LLM Integration",
-    description: "Developing intelligent, stateful agents using LangGraph and LangChain. Expert at connecting LLMs to custom tools and external APIs to create autonomous systems.",
+    title: "AI Agent & Automation Development",
+    description: "Developing intelligent, stateful agents using LangGraph to automate complex tasks, from calendar scheduling to security remediation.",
   },
   {
-    icon: React.createElement(FaDatabase, { 
+    icon: React.createElement(FaShieldAlt, { // New icon for Security
       style: { color: '#3B82F6' },
-      className: "w-full h-full group-hover:scale-110 transition-transform" 
+      className: "w-full h-full group-hover:scale-110 transition-transform"
     }),
-    title: "Database Architecture",
-    description: "Designing efficient data models for both SQL (PostgreSQL) and NoSQL (MongoDB), with a focus on data integrity, performance, and decoupled services.",
+    title: "Secure & Distributed Systems",
+    description: "Designing efficient data models and engineering distributed systems with tools like Kafka, focusing on data integrity, performance, and security.",
   },
 ];

@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Purushoth DL | Personal Portfolio",
-  description: "Purushoth is a Backend Engineer with 6 months of experience.",
+  description: "Purushoth is a Backend Engineer with 1 year of experience.",
   icons: {
     icon: '/icon.ico',
     apple: '/apple-icon.png',

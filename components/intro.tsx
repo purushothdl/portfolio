@@ -86,12 +86,11 @@ export default function Intro() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Building robust and scalable backend solutions with{" "}
+            Building secure, scalable, and intelligent backend solutions with{" "}
             <span className="font-semibold text-neutral-900 dark:text-white">
               hands-on experience
-            </span> in FastAPI, cloud architectures, and AI-powered applications.
+            </span> in Python, Go, AI Agent development, and cloud-native architectures.
           </motion.p>
-
           </div>
 
           <motion.div
