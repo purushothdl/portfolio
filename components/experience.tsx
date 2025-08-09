@@ -11,6 +11,7 @@ import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
@@ -73,12 +74,13 @@ export default function Experience() {
                   background: theme === "light"
                     ? "white"
                     : "rgba(17, 24, 39, 0.8)",
-                  fontSize: "1.5rem",
+                  display: "flex", // Added to center the image
+                  justifyContent: "center", // Added to center the image
+                  alignItems: "center", // Added to center the image
                   boxShadow: theme === "light"
                     ? "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
                     : "0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3)",
                 }}
-                iconClassName="text-gray-600 dark:text-gray-400"
               >
                 <div className="relative">
                   <h3 className="font-semibold text-xl text-gray-900 dark:text-white mb-2">

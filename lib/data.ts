@@ -1,6 +1,10 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact, FaRobot } from "react-icons/fa";
+import { FaRobot } from "react-icons/fa";
+import corpcommentImg from "@/public/corpcomment.png";
+import rmtdevImg from "@/public/rmtdev.png";
+import wordanalyticsImg from "@/public/wordanalytics.png";
+import Image from "next/image"; // Import Image from next/image
 
 
 export const links = [
@@ -34,14 +38,21 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "AI Engineer Intern",
+    title: "Full-Stack Engineer Intern",
     location: "StackGuard - India (Remote)",
     description: [
       "Led PoC development for 'Atlas,' an AI-powered system that autonomously detects exposed keys in code and raises GitHub PRs for safe remediation.",
       "Engineered dynamic LLM-based logic to accurately transform code across Python, Go, and JavaScript, externalizing secrets to config files.",
       "Optimized a Go-based scanning backend and Kafka messaging for enhanced performance, accelerating Git cloning and overall vulnerability detection throughput."
     ],
-    icon: React.createElement(FaRobot), 
+    icon: React.createElement(Image, {
+      src: "/work-icons/stackguard.png",
+      alt: "StackGuard logo",
+      width: 48, // Adjust width as needed
+      height: 48, // Adjust height as needed
+      quality: 95,
+      className: "object-contain rounded-full"
+    }),
     date: "Jul 2025 - Present", 
   },
   {
@@ -52,7 +63,14 @@ export const experiencesData = [
       "Built core components for autonomous financial agents using agentic frameworks to automate complex financial due diligence processes.",
       "Engineered a Celery-based system with cron jobs to automate data lifecycle management and cleanup operations."
     ],
-    icon: React.createElement(CgWorkAlt),
+    icon: React.createElement(Image, {
+      src: "/work-icons/dotnitron.png",
+      alt: "Dotnitron Technologies logo",
+      width: 48, // Adjust width as needed
+      height: 48, // Adjust height as needed
+      quality: 95,
+      className: "object-contain rounded-full"
+    }),
     date: "Mar 2025 - Apr 2025", 
   }
 ] as const;
