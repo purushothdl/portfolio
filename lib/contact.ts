@@ -4,7 +4,7 @@ export const contactConfig = {
     {
       icon: "BsLinkedin",
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/dl-purushoth-b2a5a52a7/",
+      href: "https://www.linkedin.com/in/purushoth-dl-b2a5a52a7/",
       color: "linkedin"
     },
     {
