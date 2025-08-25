@@ -38,6 +38,24 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Junior Software Developer",
+    location: "Rainbow Labs - UK (Remote)",
+    description: [
+      "Developing AI integrations for healthcare systems, improving patient data processing and analysis efficiency.",
+      "Building backend systems for AI agents using LangGraph framework to enable complex decision-making workflows.",
+      "Implementing secure data pipelines and APIs to connect AI models with healthcare applications."
+    ],
+    icon: React.createElement(Image, {
+      src: "/work-icons/rainbow-labs.png",
+      alt: "Healthcare AI logo",
+      width: 48,
+      height: 48,
+      quality: 95,
+      className: "object-contain rounded-full"
+    }),
+    date: "Aug 2025 - Present",
+  },
+  {
     title: "Full-Stack Engineer Intern",
     location: "StackGuard - India (Remote)",
     description: [
@@ -48,8 +66,8 @@ export const experiencesData = [
     icon: React.createElement(Image, {
       src: "/work-icons/stackguard.png",
       alt: "StackGuard logo",
-      width: 48, // Adjust width as needed
-      height: 48, // Adjust height as needed
+      width: 48, 
+      height: 48, 
       quality: 95,
       className: "object-contain rounded-full"
     }),
@@ -66,8 +84,8 @@ export const experiencesData = [
     icon: React.createElement(Image, {
       src: "/work-icons/dotnitron.png",
       alt: "Dotnitron Technologies logo",
-      width: 48, // Adjust width as needed
-      height: 48, // Adjust height as needed
+      width: 48,
+      height: 48,
       quality: 95,
       className: "object-contain rounded-full"
     }),
